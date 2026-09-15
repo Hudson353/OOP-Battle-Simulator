@@ -21,3 +21,7 @@ class Goblin:
     def is_alive(self):
         """Return True while the goblin has health remaining."""
         return self.health > 0
+
+    
+
+        

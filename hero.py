@@ -1,4 +1,39 @@
-class Hero:
-    """The hero blueprint will be implemented later in the project."""
+import random
+has_run= False
 
-    pass
+class Hero:
+    def __init__(self,name):
+        self.name= name
+        self.attack_power= 25
+        self.health= 150
+        self.armor=10
+
+    def attack(self): 
+        return random.randint(1, self.attack_power)
+
+    def take_damage(self,damage):
+        if self.armor != 0:
+            self.health= max(0, self.health-(int(damage/3)))
+            print ((f"{self.name}'s Armor reduced {damage-(int(damage/3))} damage. Damage receiced: "
+                  f"{(int(damage/3))}; Health: {self.health}; Armor: {self.armor-1} "))
+            self.armor -= 1
+            return self.armor
+        else:
+            self.health= max(0, self.health-damage)
+            print(f"{self.name} takes {damage} damage. Health: {self.health}")
+
+    def is_alive(self):
+        return self.health > 0
+
+    def use_healing(self):
+        global has_run    
+        if has_run:
+            print(f"{self.name} has already used their healing!")
+            return
+                
+        healingAmount=random.randint(1,25)
+        print(f"{self.name}'s healing grants {healingAmount} amount of Health!")
+        self.health += healingAmount
+        has_run=True
+
+                
