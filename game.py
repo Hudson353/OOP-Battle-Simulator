@@ -24,7 +24,7 @@ def main():
     goblin.take_damage(heroDamage)
 
     goblinDamage = goblin.attack()
-    arcane.use_healing
+    arcane.use_healing()
     arcane.take_damage(goblinDamage)
 
     goblinDamage = goblin.attack()
