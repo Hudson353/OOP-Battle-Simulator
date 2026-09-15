@@ -1,5 +1,5 @@
 import random
-has_run= False
+healingHas_run= False
 
 class Hero:
     def __init__(self,name):
@@ -24,16 +24,16 @@ class Hero:
 
     def is_alive(self):
         return self.health > 0
-
+    
     def use_healing(self):
-        global has_run    
-        if has_run:
+        global healingHas_run    
+        if healingHas_run:
             print(f"{self.name} has already used their healing!")
             return
                 
         healingAmount=random.randint(1,25)
         print(f"{self.name}'s healing grants {healingAmount} amount of Health!")
         self.health += healingAmount
-        has_run=True
+        healingHas_run=True
 
                 

@@ -20,18 +20,19 @@ def main():
 
     print(f"{arcane.name} enters the arena with {arcane.health} health.")
 
-    heroDamage= arcane.attack()
-    goblin.take_damage(heroDamage)
+    def battle(hero: Hero, enemy : Goblin):
+        while hero.is_alive() and enemy.is_alive():
+            hero_damage = hero.attack()
+            enemy.take_damage(hero_damage)
+            if enemy.is_alive():
+                enemy_damage = enemy.attack()
+                hero.take_damage(enemy_damage)
+        if hero.is_alive():
+            print(f"{hero.name} wins!")
+        else: 
+            print(f"{enemy.name} wins!")
 
-    goblinDamage = goblin.attack()
-    arcane.use_healing()
-    arcane.take_damage(goblinDamage)
-
-    goblinDamage = goblin.attack()
-    arcane.use_healing()
-    arcane.take_damage(goblinDamage)
-
-    
+    battle(arcane, goblin) 
 
     
 if __name__ == "__main__":
