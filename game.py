@@ -27,12 +27,14 @@ def main():
             if enemy.is_alive():
                 enemy_damage = enemy.attack()
                 hero.take_damage(enemy_damage)
+                hero.use_healing()
         if hero.is_alive():
             print(f"{hero.name} wins!")
         else: 
             print(f"{enemy.name} wins!")
 
     battle(arcane, goblin) 
+    
 
     
 if __name__ == "__main__":
