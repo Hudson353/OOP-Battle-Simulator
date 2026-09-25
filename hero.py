@@ -5,7 +5,7 @@ healingNotify=0
 class Hero:
     def __init__(self,name):
         self.name= name
-        self.attack_power= 25
+        self.attack_power= 13
         self.health= 150
         self.maxHealth = self.health
         self.armor=10
